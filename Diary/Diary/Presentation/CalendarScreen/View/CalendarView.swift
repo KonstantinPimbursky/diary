@@ -50,6 +50,14 @@ final class CalendarView: UIView {
         return button
     }()
     
+    private let weekStackView: WeekStackView = {
+        let stack = WeekStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .equalCentering
+        return stack
+    }()
+    
     // MARK: - Initializers
     
     init(subscriber: CalendarViewDelegate?) {
@@ -93,6 +101,7 @@ extension CalendarView {
         addSubview(previousMonthButton)
         addSubview(nextMonthButton)
         addSubview(monthLabel)
+        addSubview(weekStackView)
     }
     
     private func setConstraints() {
@@ -110,6 +119,12 @@ extension CalendarView {
             monthLabel.centerYAnchor.constraint(equalTo: previousMonthButton.centerYAnchor),
             monthLabel.leadingAnchor.constraint(equalTo: previousMonthButton.trailingAnchor, constant: 16),
             monthLabel.trailingAnchor.constraint(equalTo: nextMonthButton.leadingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            weekStackView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 16),
+            weekStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            weekStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 }
