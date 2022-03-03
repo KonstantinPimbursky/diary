@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = ViewController()
-        window?.rootViewController = viewController
+        let calendarController = CalendarController()
+        let navigationController = UINavigationController(rootViewController: calendarController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }
