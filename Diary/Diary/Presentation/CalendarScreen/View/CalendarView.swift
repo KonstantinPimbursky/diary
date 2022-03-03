@@ -18,6 +18,28 @@ final class CalendarView: UIView {
     
     public weak var delegate: CalendarViewDelegate?
     
+    public let monthCollectionView: UICollectionView = {
+        let cellWidth = (UIScreen.main.bounds.width - 2 * 16 - 6 * 8) / 7
+        let celSize = CGSize(width: cellWidth, height: cellWidth)
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 8
+        layout.scrollDirection = .vertical
+        layout.itemSize = celSize
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.register(
+            CalendarCell.self,
+            forCellWithReuseIdentifier: CalendarCell.reuseIdentifier
+        )
+        let height = cellWidth * 4 + 8 * 2
+        collection.heightAnchor.constraint(equalToConstant: height).isActive = true
+        return collection
+    }()
+    
     // MARK: - Private Properties
     
     private let monthLabel: UILabel = {
@@ -98,10 +120,13 @@ final class CalendarView: UIView {
 
 extension CalendarView {
     private func addSubviews() {
-        addSubview(previousMonthButton)
-        addSubview(nextMonthButton)
-        addSubview(monthLabel)
-        addSubview(weekStackView)
+        [
+            previousMonthButton,
+            nextMonthButton,
+            monthLabel,
+            weekStackView,
+            monthCollectionView
+        ].forEach { addSubview($0) }
     }
     
     private func setConstraints() {
@@ -125,6 +150,12 @@ extension CalendarView {
             weekStackView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 16),
             weekStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             weekStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            monthCollectionView.topAnchor.constraint(equalTo: weekStackView.bottomAnchor),
+            monthCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            monthCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }
