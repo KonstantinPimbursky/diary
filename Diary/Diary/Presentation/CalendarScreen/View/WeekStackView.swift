@@ -11,10 +11,12 @@ final class WeekStackView: UIStackView {
     
     // MARK: - Private Properties
     
+    private let fontSize = 14
+    
     private let mondayLabel: UILabel = {
         let label = UILabel()
         label.text = "Пн"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .black
         return label
     }()
@@ -22,7 +24,7 @@ final class WeekStackView: UIStackView {
     private let tuesdayLabel: UILabel = {
         let label = UILabel()
         label.text = "Вт"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .black
         return label
     }()
@@ -30,7 +32,7 @@ final class WeekStackView: UIStackView {
     private let wednesdayLabel: UILabel = {
         let label = UILabel()
         label.text = "Ср"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .black
         return label
     }()
@@ -38,7 +40,7 @@ final class WeekStackView: UIStackView {
     private let thursdayLabel: UILabel = {
         let label = UILabel()
         label.text = "Чт"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .black
         return label
     }()
@@ -46,7 +48,7 @@ final class WeekStackView: UIStackView {
     private let fridayLabel: UILabel = {
         let label = UILabel()
         label.text = "Пт"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .black
         return label
     }()
@@ -54,7 +56,7 @@ final class WeekStackView: UIStackView {
     private let saturdayLabel: UILabel = {
         let label = UILabel()
         label.text = "Сб"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .gray
         return label
     }()
@@ -62,7 +64,7 @@ final class WeekStackView: UIStackView {
     private let sundayLabel: UILabel = {
         let label = UILabel()
         label.text = "Вс"
-        label.font = R.font.montserratMedium(size: 16)
+        label.font = R.font.montserratMedium(size: 14)
         label.textColor = .gray
         return label
     }()

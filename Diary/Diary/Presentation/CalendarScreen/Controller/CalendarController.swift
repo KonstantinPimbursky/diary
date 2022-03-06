@@ -42,6 +42,8 @@ final class CalendarController: UIViewController {
     private func setupMainView() {
         mainView.monthCollectionView.dataSource = self
         mainView.monthCollectionView.delegate = self
+        mainView.dailyEventsTableView.dataSource = self
+        mainView.dailyEventsTableView.delegate = self
     }
     
     private func setMonthCollection() {
@@ -108,5 +110,38 @@ extension CalendarController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension CalendarController: UICollectionViewDelegate {
+    
+}
+
+// MARK: - UITableViewDataSource
+
+extension CalendarController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 24
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: DailyEventsCell.reuseIdentifier,
+                for: indexPath
+            ) as? DailyEventsCell
+        else { return UITableViewCell() }
+        
+        var cellText = ""
+        if indexPath.item < 10 {
+            cellText = "0" + String(indexPath.item) + ":00"
+        } else {
+            cellText = String(indexPath.item) + ":00"
+        }
+        cell.timeText = cellText
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension CalendarController: UITableViewDelegate {
     
 }

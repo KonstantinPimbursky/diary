@@ -32,7 +32,8 @@ final class CalendarView: UIView {
         let lineSpacing: CGFloat = 2
         let itemSpacing: CGFloat = 2
         let cellWidth = (UIScreen.main.bounds.width - 2 * itemSpacing - 6 * itemSpacing) / 7
-        let celSize = CGSize(width: cellWidth, height: cellWidth)
+        let cellHeight: CGFloat = 30
+        let celSize = CGSize(width: cellWidth, height: cellHeight)
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = lineSpacing
         layout.minimumInteritemSpacing = itemSpacing
@@ -47,14 +48,15 @@ final class CalendarView: UIView {
             CalendarCell.self,
             forCellWithReuseIdentifier: CalendarCell.reuseIdentifier
         )
-        let height = cellWidth * 6 + lineSpacing * 5
+        let height = cellHeight * 6 + lineSpacing * 5
         collection.heightAnchor.constraint(equalToConstant: height).isActive = true
         return collection
     }()
     
-    public let dayEventsTableView: UITableView = {
+    public let dailyEventsTableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(DailyEventsCell.self, forCellReuseIdentifier: DailyEventsCell.reuseIdentifier)
         return table
     }()
     
@@ -133,7 +135,8 @@ extension CalendarView {
             nextMonthButton,
             monthLabel,
             weekStackView,
-            monthCollectionView
+            monthCollectionView,
+            dailyEventsTableView
         ].forEach { addSubview($0) }
     }
     
@@ -164,6 +167,13 @@ extension CalendarView {
             monthCollectionView.topAnchor.constraint(equalTo: weekStackView.bottomAnchor),
             monthCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             monthCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            dailyEventsTableView.topAnchor.constraint(equalTo: monthCollectionView.bottomAnchor, constant: 16),
+            dailyEventsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            dailyEventsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            dailyEventsTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
