@@ -7,16 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BC973016DD3B13A0254C /* Pods_Diary.framework */; };
+		B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97B27D125AB00FCC6D6 /* CalendarController.swift */; };
+		B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97D27D125D400FCC6D6 /* CalendarView.swift */; };
+		B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98427D1302800FCC6D6 /* R.generated.swift */; };
+		B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */; };
+		B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */; };
+		B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98C27D1422400FCC6D6 /* CalendarCell.swift */; };
+		B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */; };
+		B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */; };
+		B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */; };
+		B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BF27D4D928004ADB14 /* EventModel.swift */; };
 		B5F941E627D0C1C4005E10F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */; };
-		B5F941EA27D0C1C4005E10F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F941E927D0C1C4005E10F7 /* ViewController.swift */; };
 		B5F941EF27D0C1C4005E10F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */; };
 		B5F941F227D0C1C4005E10F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0771BC973016DD3B13A0254C /* Pods_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C84E1F241B42900499AD0AA /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
+		A4ACA8EA43B467BFF3EBEFCC /* Pods-Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.release.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.release.xcconfig"; sourceTree = "<group>"; };
+		B588F97B27D125AB00FCC6D6 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		B588F97D27D125D400FCC6D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		B588F98427D1302800FCC6D6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStackView.swift; sourceTree = "<group>"; };
+		B588F98C27D1422400FCC6D6 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventsCell.swift; sourceTree = "<group>"; };
+		B5D2E0BF27D4D928004ADB14 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		B5F941E227D0C1C4005E10F7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5F941E927D0C1C4005E10F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F941F127D0C1C4005E10F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F941F327D0C1C4005E10F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,17 +49,87 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410AD1DB4A0D0BD5C15D63BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C84E1F241B42900499AD0AA /* Pods-Diary.debug.xcconfig */,
+				A4ACA8EA43B467BFF3EBEFCC /* Pods-Diary.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B588F97627D1252F00FCC6D6 /* CalendarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B588F97A27D1258100FCC6D6 /* Controller */,
+				B588F97927D1257B00FCC6D6 /* View */,
+			);
+			path = CalendarScreen;
+			sourceTree = "<group>";
+		};
+		B588F97727D1253E00FCC6D6 /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		B588F97827D1256E00FCC6D6 /* CreateEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateEventScreen;
+			sourceTree = "<group>";
+		};
+		B588F97927D1257B00FCC6D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B588F97D27D125D400FCC6D6 /* CalendarView.swift */,
+				B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */,
+				B588F98C27D1422400FCC6D6 /* CalendarCell.swift */,
+				B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B588F97A27D1258100FCC6D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B588F97B27D125AB00FCC6D6 /* CalendarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B588F98727D1346600FCC6D6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B5D2E0B927D4C1BE004ADB14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B5F941D927D0C1C4005E10F7 = {
 			isa = PBXGroup;
 			children = (
 				B5F941E427D0C1C4005E10F7 /* Diary */,
 				B5F941E327D0C1C4005E10F7 /* Products */,
+				410AD1DB4A0D0BD5C15D63BE /* Pods */,
+				FC412CCC17305B655F673386 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +148,7 @@
 				B5F941FB27D0C559005E10F7 /* Presentation */,
 				B5F941F927D0C542005E10F7 /* UIAplication */,
 				B5F941FD27D0C574005E10F7 /* SupportingFiles */,
+				B5F941F327D0C1C4005E10F7 /* Info.plist */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -71,6 +164,8 @@
 		B5F941FA27D0C54D005E10F7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */,
+				B5D2E0BF27D4D928004ADB14 /* EventModel.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -78,7 +173,9 @@
 		B5F941FB27D0C559005E10F7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				B5F941E927D0C1C4005E10F7 /* ViewController.swift */,
+				B588F97827D1256E00FCC6D6 /* CreateEventScreen */,
+				B588F97727D1253E00FCC6D6 /* DetailsScreen */,
+				B588F97627D1252F00FCC6D6 /* CalendarScreen */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -86,11 +183,21 @@
 		B5F941FD27D0C574005E10F7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0B927D4C1BE004ADB14 /* Extensions */,
+				B588F98727D1346600FCC6D6 /* Fonts */,
+				B588F98427D1302800FCC6D6 /* R.generated.swift */,
 				B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */,
 				B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */,
-				B5F941F327D0C1C4005E10F7 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FC412CCC17305B655F673386 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0771BC973016DD3B13A0254C /* Pods_Diary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +207,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5F941F627D0C1C4005E10F7 /* Build configuration list for PBXNativeTarget "Diary" */;
 			buildPhases = (
+				D16648C91B01CD9A0FA43DF6 /* [CP] Check Pods Manifest.lock */,
+				B588F98627D1327E00FCC6D6 /* SwiftLint */,
+				B588F97F27D12C8E00FCC6D6 /* R.swift */,
 				B5F941DE27D0C1C4005E10F7 /* Sources */,
 				B5F941DF27D0C1C4005E10F7 /* Frameworks */,
 				B5F941E027D0C1C4005E10F7 /* Resources */,
+				342530FE90F3F0C76BF632A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,19 +263,108 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F941F227D0C1C4005E10F7 /* LaunchScreen.storyboard in Resources */,
+				B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */,
 				B5F941EF27D0C1C4005E10F7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		342530FE90F3F0C76BF632A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Diary/Pods-Diary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Diary/Pods-Diary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Diary/Pods-Diary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B588F97F27D12C8E00FCC6D6 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Diary/SupportingFiles/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Diary/SupportingFiles/R.generated.swift\"\n";
+		};
+		B588F98627D1327E00FCC6D6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		D16648C91B01CD9A0FA43DF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Diary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5F941DE27D0C1C4005E10F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F941EA27D0C1C4005E10F7 /* ViewController.swift in Sources */,
 				B5F941E627D0C1C4005E10F7 /* AppDelegate.swift in Sources */,
+				B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */,
+				B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */,
+				B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */,
+				B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */,
+				B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */,
+				B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */,
+				B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */,
+				B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */,
+				B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +500,7 @@
 		};
 		B5F941F727D0C1C4005E10F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C84E1F241B42900499AD0AA /* Pods-Diary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -328,6 +529,7 @@
 		};
 		B5F941F827D0C1C4005E10F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4ACA8EA43B467BFF3EBEFCC /* Pods-Diary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
