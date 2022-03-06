@@ -24,11 +24,19 @@ final class CalendarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        setNavigationBar()
         setupMainView()
     }
     
     // MARK: - Private Methods
+    
+    private func setNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addButtonAction)
+        )
+    }
     
     private func setupMainView() {
         mainView.calendarView.delegate = self
@@ -38,7 +46,7 @@ final class CalendarController: UIViewController {
     
 }
 
-// MARK: -
+// MARK: - FSCalendarDelegate
 
 extension CalendarController: FSCalendarDelegate {
     func calendar(

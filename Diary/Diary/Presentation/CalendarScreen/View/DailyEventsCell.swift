@@ -26,7 +26,7 @@ final class DailyEventsCell: UITableViewCell {
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = R.font.montserratMedium(size: 12)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
         label.textAlignment = .center
         return label
