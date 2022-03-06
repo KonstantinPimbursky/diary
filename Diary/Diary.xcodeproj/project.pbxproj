@@ -14,6 +14,8 @@
 		B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */; };
 		B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */; };
 		B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98C27D1422400FCC6D6 /* CalendarCell.swift */; };
+		B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */; };
+		B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */; };
 		B5F941E627D0C1C4005E10F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */; };
 		B5F941EF27D0C1C4005E10F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */; };
 		B5F941F227D0C1C4005E10F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 		B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStackView.swift; sourceTree = "<group>"; };
 		B588F98C27D1422400FCC6D6 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B5F941E227D0C1C4005E10F7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +110,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B5D2E0B927D4C1BE004ADB14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B5F941D927D0C1C4005E10F7 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		B5F941FA27D0C54D005E10F7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -164,6 +177,7 @@
 		B5F941FD27D0C574005E10F7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0B927D4C1BE004ADB14 /* Extensions */,
 				B588F98727D1346600FCC6D6 /* Fonts */,
 				B588F98427D1302800FCC6D6 /* R.generated.swift */,
 				B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */,
@@ -339,8 +353,10 @@
 				B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */,
 				B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */,
 				B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */,
+				B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */,
 				B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */,
 				B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */,
+				B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

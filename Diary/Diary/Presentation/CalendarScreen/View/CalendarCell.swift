@@ -37,6 +37,7 @@ final class CalendarCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .red
         setConstraints()
     }
     

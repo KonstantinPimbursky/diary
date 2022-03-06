@@ -20,6 +20,9 @@ final class CalendarController: UIViewController {
         "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "25", "26", "27", "28"
     ]
+    private var selectedDate = Date()
+    private var monthDays = [String]()
+    private let calendarHelper = CalendarHelper()
     
     // MARK: - Life Cycle
     
@@ -31,11 +34,35 @@ final class CalendarController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupMainView()
+        setMonthCollection()
     }
+    
+    // MARK: - Private Methods
     
     private func setupMainView() {
         mainView.monthCollectionView.dataSource = self
         mainView.monthCollectionView.delegate = self
+    }
+    
+    private func setMonthCollection() {
+        monthDays.removeAll()
+        
+        let daysInMonth = calendarHelper.daysInMonth(date: selectedDate)
+        let firstDayOfMonth = calendarHelper.firstOfMonth(date: selectedDate)
+        let startingSpaces = calendarHelper.weekDay(date: firstDayOfMonth)
+        
+        var count: Int = 1
+        while count <= 42 {
+            if count <= startingSpaces || count - startingSpaces > daysInMonth {
+                monthDays.append("")
+            } else {
+                monthDays.append(String(count - startingSpaces))
+            }
+            count += 1
+        }
+        
+        mainView.monthLabel.text = calendarHelper.monthString(date: selectedDate).capitalizingFirstLetter()
+        mainView.monthCollectionView.reloadData()
     }
     
 }
@@ -44,11 +71,13 @@ final class CalendarController: UIViewController {
 
 extension CalendarController: CalendarViewDelegate {
     func previousMonthButtonTapped() {
-        print("previousMonthButtonTapped")
+        selectedDate = calendarHelper.minusMonth(date: selectedDate)
+        setMonthCollection()
     }
     
     func nextMonthButtonTapped() {
-        print("nextMonthButtonTapped")
+        selectedDate = calendarHelper.plusMonth(date: selectedDate)
+        setMonthCollection()
     }
 }
 
@@ -57,7 +86,7 @@ extension CalendarController: CalendarViewDelegate {
 extension CalendarController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testDays.count
+        return monthDays.count
     }
     
     func collectionView(
@@ -70,7 +99,7 @@ extension CalendarController: UICollectionViewDataSource {
             for: indexPath
         ) as? CalendarCell else { return UICollectionViewCell() }
         
-        cell.text = testDays[indexPath.item]
+        cell.text = monthDays[indexPath.item]
         
         return cell
     }

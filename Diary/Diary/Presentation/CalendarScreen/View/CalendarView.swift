@@ -18,31 +18,7 @@ final class CalendarView: UIView {
     
     public weak var delegate: CalendarViewDelegate?
     
-    public let monthCollectionView: UICollectionView = {
-        let cellWidth = (UIScreen.main.bounds.width - 2 * 16 - 6 * 8) / 7
-        let celSize = CGSize(width: cellWidth, height: cellWidth)
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
-        layout.scrollDirection = .vertical
-        layout.itemSize = celSize
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        collection.showsVerticalScrollIndicator = false
-        collection.showsHorizontalScrollIndicator = false
-        collection.register(
-            CalendarCell.self,
-            forCellWithReuseIdentifier: CalendarCell.reuseIdentifier
-        )
-        let height = cellWidth * 4 + 8 * 2
-        collection.heightAnchor.constraint(equalToConstant: height).isActive = true
-        return collection
-    }()
-    
-    // MARK: - Private Properties
-    
-    private let monthLabel: UILabel = {
+    public let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Февраль 2022"
@@ -51,6 +27,38 @@ final class CalendarView: UIView {
         label.font = R.font.montserratMedium(size: 20)
         return label
     }()
+    
+    public let monthCollectionView: UICollectionView = {
+        let lineSpacing: CGFloat = 2
+        let itemSpacing: CGFloat = 2
+        let cellWidth = (UIScreen.main.bounds.width - 2 * itemSpacing - 6 * itemSpacing) / 7
+        let celSize = CGSize(width: cellWidth, height: cellWidth)
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = lineSpacing
+        layout.minimumInteritemSpacing = itemSpacing
+        layout.scrollDirection = .vertical
+        layout.itemSize = celSize
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.contentInset = UIEdgeInsets(top: 0, left: itemSpacing, bottom: 0, right: itemSpacing)
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.register(
+            CalendarCell.self,
+            forCellWithReuseIdentifier: CalendarCell.reuseIdentifier
+        )
+        let height = cellWidth * 6 + lineSpacing * 5
+        collection.heightAnchor.constraint(equalToConstant: height).isActive = true
+        return collection
+    }()
+    
+    public let dayEventsTableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
+    // MARK: - Private Properties
     
     private let previousMonthButton: UIButton = {
         let button = UIButton()
