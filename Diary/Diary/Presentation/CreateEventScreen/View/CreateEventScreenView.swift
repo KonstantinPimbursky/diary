@@ -96,6 +96,26 @@ final class CreateEventScreenView: UIView {
         return textView
     }()
     
+    private let startDatePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .dateAndTime
+        picker.backgroundColor = .white
+        return picker
+    }()
+    
+    private let endDatePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .dateAndTime
+        picker.backgroundColor = .white
+        return picker
+    }()
+    
+    private let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy, HH:mm"
+        return formatter
+    }()
+    
     // MARK: - Initializers
     
     init() {
@@ -103,6 +123,7 @@ final class CreateEventScreenView: UIView {
         backgroundColor = .white
         setSubviews()
         setConstraints()
+        setDatePickers()
     }
     
     required init?(coder: NSCoder) {
@@ -110,6 +131,29 @@ final class CreateEventScreenView: UIView {
     }
     
     // MARK: - Private Methods
+    
+    private func setDatePickers() {
+        startField.inputView = startDatePicker
+        startField.text = formatter.string(from: startDatePicker.date)
+        startDatePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
+        startDatePicker.frame.size = CGSize(width: 0, height: 250)
+        
+        endField.inputView = endDatePicker
+        endField.text = formatter.string(from: endDatePicker.date)
+        endDatePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
+        startDatePicker.frame.size = CGSize(width: 0, height: 250)
+    }
+    
+    @objc private func startTimeChanged(_ sender: UIDatePicker) {
+        switch sender {
+        case startDatePicker:
+            startField.text = formatter.string(from: startDatePicker.date)
+        case endDatePicker:
+            endField.text = formatter.string(from: endDatePicker.date)
+        default:
+            return
+        }
+    }
     
     private func setSubviews() {
         [
