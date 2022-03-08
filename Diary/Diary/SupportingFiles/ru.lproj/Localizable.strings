@@ -18,7 +18,8 @@
 
 // MARK: - CreateEventScreenView
 
+"eventTitle" = "Событие";
 "eventName" = "Название";
-"eventStartDate" = "Начало";
-"eventEndDate" = "Окончание";
+"eventStartDate" = "Начало:";
+"eventEndDate" = "Конец:";
 "eventDescription" = "Описание";

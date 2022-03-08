@@ -19,4 +19,33 @@ final class CreateEventScreenController: UIViewController {
         view = mainView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
+        setupNavigationBar()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(cancelAction)
+        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .save,
+            target: self,
+            action: #selector(saveAction)
+        )
+        navigationItem.title = R.string.localizable.eventTitle()
+    }
+    
+    @objc private func cancelAction() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func saveAction() {
+        print("saveAction")
+    }
 }

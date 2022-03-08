@@ -18,7 +18,8 @@
 
 // MARK: - CreateEventScreenView
 
+"eventTitle" = "Event";
 "eventName" = "Name";
-"eventStartDate" = "Start date";
-"eventEndDate" = "End date";
+"eventStartDate" = "Start:";
+"eventEndDate" = "End:";
 "eventDescription" = "Description";
