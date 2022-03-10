@@ -23,3 +23,6 @@
 "eventStartDate" = "Начало:";
 "eventEndDate" = "Конец:";
 "eventDescription" = "Описание";
+"eventWarningMessage" = "Вы действительно хотите отказаться от этого нового события?";
+"eventCancelChanges" = "Отменить изменения";
+"eventContinueEditing" = "Продолжить редактирование";

@@ -12,6 +12,7 @@ final class CreateEventScreenController: UIViewController {
     // MARK: - Private Properties
     
     private let mainView = CreateEventScreenView()
+    private let realmManager = RealmManager()
     
     // MARK: - Life Cycle
     
@@ -41,11 +42,40 @@ final class CreateEventScreenController: UIViewController {
         navigationItem.title = R.string.localizable.eventTitle()
     }
     
+    private func showAlert() {
+        let alertController = UIAlertController(
+            title: nil,
+            message: R.string.localizable.eventWarningMessage(),
+            preferredStyle: .actionSheet
+        )
+        let continueEditingAction = UIAlertAction(
+            title: R.string.localizable.eventContinueEditing(),
+            style: .cancel
+        )
+        let cancelChangesAction = UIAlertAction(
+            title: R.string.localizable.eventCancelChanges(),
+            style: .default,
+            handler: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        )
+        alertController.addAction(continueEditingAction)
+        alertController.addAction(cancelChangesAction)
+        present(alertController, animated: true)
+    }
+    
     @objc private func cancelAction() {
-        dismiss(animated: true)
+        showAlert()
     }
     
     @objc private func saveAction() {
-        print("saveAction")
+        realmManager.saveEvent(
+            id: mainView.event.id.uuidString,
+            dateStart: mainView.event.dateStart,
+            dateFinish: mainView.event.dateFinish,
+            eventName: mainView.event.name,
+            eventDescription: mainView.event.description
+        )
+        dismiss(animated: true)
     }
 }

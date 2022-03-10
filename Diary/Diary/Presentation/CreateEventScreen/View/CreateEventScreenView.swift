@@ -9,9 +9,18 @@ import UIKit
 
 final class CreateEventScreenView: UIView {
     
+    // MARK: - Public Properties
+    
+    public var event: EventModel = EventModelImpl(
+        dateStart: Date().timeIntervalSince1970,
+        dateFinish: Date().timeIntervalSince1970,
+        name: "",
+        description: ""
+    )
+    
     // MARK: - Private Properties
     
-    private let nameField: TextField = {
+    private lazy var nameField: TextField = {
         let field = TextField(
             padding: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         )
@@ -20,6 +29,7 @@ final class CreateEventScreenView: UIView {
         field.textAlignment = .left
         field.backgroundColor = R.color.greyLight()
         field.layer.cornerRadius = 8
+        field.delegate = self
         return field
     }()
     
@@ -148,8 +158,10 @@ final class CreateEventScreenView: UIView {
         switch sender {
         case startDatePicker:
             startField.text = formatter.string(from: startDatePicker.date)
+            event.dateStart = startDatePicker.date.timeIntervalSince1970
         case endDatePicker:
             endField.text = formatter.string(from: endDatePicker.date)
+            event.dateFinish = endDatePicker.date.timeIntervalSince1970
         default:
             return
         }
@@ -218,7 +230,17 @@ final class CreateEventScreenView: UIView {
     }
 }
 
-// MARK: -
+// MARK: - UITextFieldDelegate
+
+extension CreateEventScreenView: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text {
+            event.name = text
+        }
+    }
+}
+
+// MARK: - UITextViewDelegate
 
 extension CreateEventScreenView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -232,6 +254,8 @@ extension CreateEventScreenView: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = R.string.localizable.eventDescription()
             textView.textColor = .lightGray
+        } else {
+            event.description = textView.text
         }
     }
 }
