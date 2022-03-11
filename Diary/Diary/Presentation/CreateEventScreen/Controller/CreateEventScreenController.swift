@@ -16,7 +16,7 @@ final class CreateEventScreenController: UIViewController {
     // MARK: - Private Properties
     
     private weak var delegate: CreateEventScreenControllerDelegate?
-    private let mainView = CreateEventScreenView()
+    private lazy var mainView = CreateEventScreenView(delegate: self)
     private let realmManager = RealmManager()
     
     // MARK: - Initializers
@@ -45,16 +45,8 @@ final class CreateEventScreenController: UIViewController {
     // MARK: - Private Methods
     
     private func setupNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .cancel,
-            target: self,
-            action: #selector(cancelAction)
-        )
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .save,
-            target: self,
-            action: #selector(saveAction)
-        )
+        navigationItem.leftBarButtonItem = mainView.cancelButtonItem
+        navigationItem.rightBarButtonItem = mainView.saveButtonItem
         navigationItem.title = R.string.localizable.eventTitle()
     }
     
@@ -80,11 +72,35 @@ final class CreateEventScreenController: UIViewController {
         present(alertController, animated: true)
     }
     
-    @objc private func cancelAction() {
-        showAlert()
+//    @objc private func cancelAction() {
+//        showAlert()
+//    }
+//
+//    @objc private func saveAction() {
+//        realmManager.saveEvent(
+//            id: mainView.event.id.uuidString,
+//            dateStart: mainView.event.dateStart.timeIntervalSince1970,
+//            dateFinish: mainView.event.dateFinish.timeIntervalSince1970,
+//            eventName: mainView.event.name,
+//            eventDescription: mainView.event.description
+//        )
+//        delegate?.eventWasSaved()
+//        navigationController?.popViewController(animated: true)
+//    }
+}
+
+// MARK: - CreateEventScreenViewDelegate
+
+extension CreateEventScreenController: CreateEventScreenViewDelegate {
+    func cancelItemAction() {
+        if mainView.changesWasMade {
+            showAlert()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
-    @objc private func saveAction() {
+    func saveItemAction() {
         realmManager.saveEvent(
             id: mainView.event.id.uuidString,
             dateStart: mainView.event.dateStart.timeIntervalSince1970,

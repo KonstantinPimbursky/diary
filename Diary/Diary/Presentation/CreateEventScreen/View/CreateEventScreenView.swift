@@ -7,13 +7,51 @@
 
 import UIKit
 
+protocol CreateEventScreenViewDelegate: AnyObject {
+    func cancelItemAction()
+    func saveItemAction()
+}
+
 final class CreateEventScreenView: UIView {
     
     // MARK: - Public Properties
     
     public var event: EventModel = EventModelImpl()
     
+    public var changesWasMade: Bool {
+        return nameWasAdded || descriptionWasAdded
+    }
+    
+    public let cancelButtonItem = UIBarButtonItem(
+        barButtonSystemItem: .cancel,
+        target: self,
+        action: #selector(cancelAction)
+    )
+    
+    public lazy var saveButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(
+            barButtonSystemItem: .save,
+            target: self,
+            action: #selector(saveAction)
+        )
+        item.isEnabled = false
+        return item
+    }()
+    
     // MARK: - Private Properties
+    
+    private weak var delegate: CreateEventScreenViewDelegate?
+    
+    private var nameWasAdded: Bool = false {
+        didSet {
+            changesSaveItemActivity()
+        }
+    }
+    private var descriptionWasAdded: Bool = true {
+        didSet {
+            changesSaveItemActivity()
+        }
+    }
     
     private lazy var nameField: TextField = {
         let field = TextField(
@@ -105,6 +143,11 @@ final class CreateEventScreenView: UIView {
         let picker = UIDatePicker()
         picker.datePickerMode = .dateAndTime
         picker.backgroundColor = .white
+        if #available(iOS 14.0, *) {
+            picker.preferredDatePickerStyle = .inline
+        } else {
+            picker.frame.size = CGSize(width: 0, height: 250)
+        }
         return picker
     }()
     
@@ -112,6 +155,11 @@ final class CreateEventScreenView: UIView {
         let picker = UIDatePicker()
         picker.datePickerMode = .dateAndTime
         picker.backgroundColor = .white
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
+        } else {
+            picker.frame.size = CGSize(width: 0, height: 250)
+        }
         return picker
     }()
     
@@ -123,7 +171,8 @@ final class CreateEventScreenView: UIView {
     
     // MARK: - Initializers
     
-    init() {
+    init(delegate: CreateEventScreenViewDelegate?) {
+        self.delegate = delegate
         super.init(frame: .zero)
         backgroundColor = .white
         setSubviews()
@@ -137,31 +186,22 @@ final class CreateEventScreenView: UIView {
     
     // MARK: - Private Methods
     
+    private func changesSaveItemActivity() {
+        if changesWasMade {
+            saveButtonItem.isEnabled = true
+        } else {
+            saveButtonItem.isEnabled = false
+        }
+    }
+    
     private func setDatePickers() {
         startField.inputView = startDatePicker
         startField.text = formatter.string(from: startDatePicker.date)
         startDatePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
-        startDatePicker.frame.size = CGSize(width: 0, height: 250)
         
         endField.inputView = endDatePicker
         endField.text = formatter.string(from: endDatePicker.date)
         endDatePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
-        endDatePicker.frame.size = CGSize(width: 0, height: 250)
-    }
-    
-    @objc private func startTimeChanged(_ sender: UIDatePicker) {
-        switch sender {
-        case startDatePicker:
-            startField.text = formatter.string(from: startDatePicker.date)
-            event.dateStart = startDatePicker.date
-            endDatePicker.minimumDate = startDatePicker.date
-            endDatePicker.setDate(startDatePicker.date, animated: true)
-        case endDatePicker:
-            endField.text = formatter.string(from: endDatePicker.date)
-            event.dateFinish = endDatePicker.date
-        default:
-            return
-        }
     }
     
     private func setSubviews() {
@@ -227,12 +267,46 @@ final class CreateEventScreenView: UIView {
     }
 }
 
+// MARK: - Actions
+
+extension CreateEventScreenView {
+    @objc private func cancelAction() {
+        delegate?.cancelItemAction()
+    }
+    
+    @objc private func saveAction() {
+        delegate?.saveItemAction()
+    }
+    
+    @objc private func startTimeChanged(_ sender: UIDatePicker) {
+        switch sender {
+        case startDatePicker:
+            startField.text = formatter.string(from: startDatePicker.date)
+            event.dateStart = startDatePicker.date
+            endDatePicker.minimumDate = startDatePicker.date
+            endDatePicker.setDate(startDatePicker.date, animated: true)
+        case endDatePicker:
+            endField.text = formatter.string(from: endDatePicker.date)
+            event.dateFinish = endDatePicker.date
+        default:
+            return
+        }
+    }
+}
+
 // MARK: - UITextFieldDelegate
 
 extension CreateEventScreenView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
+            if text.isEmpty {
+                nameWasAdded = false
+            } else {
+                nameWasAdded = true
+            }
             event.name = text
+        } else {
+            nameWasAdded = false
         }
     }
 }
@@ -249,10 +323,22 @@ extension CreateEventScreenView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
+            descriptionWasAdded = false
             textView.text = R.string.localizable.eventDescription()
             textView.textColor = .lightGray
         } else {
-            event.description = textView.text
+            descriptionWasAdded = true
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            descriptionWasAdded = false
+        } else {
+            if textView.textColor == .black {
+                descriptionWasAdded = true
+                event.description = textView.text
+            }
         }
     }
 }

@@ -67,6 +67,8 @@ final class CalendarController: UIViewController {
 extension CalendarController: CreateEventScreenControllerDelegate {
     func eventWasSaved() {
         mainView.calendarView.select(Date())
+        fillTodayEvents()
+        mainView.dailyEventsTableView.reloadData()
     }
 }
 
@@ -108,7 +110,7 @@ extension CalendarController: UITableViewDataSource {
         for (index, event) in dailyEvents.enumerated() {
             let startHour = Calendar.current.component(.hour, from: event.dateStart)
             let endHour = Calendar.current.component(.hour, from: event.dateFinish)
-            if startHour == indexPath.item || endHour == indexPath.item {
+            if indexPath.item >= startHour && indexPath.item <= endHour {
                 cell.addEvent(
                     event,
                     tag: index,
@@ -120,13 +122,5 @@ extension CalendarController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-// MARK: - DailyEventsCellDelegate
-
-extension CalendarController: DailyEventsCellDelegate {
-    func eventWasTapped(_ event: EventModel) {
-        print("eventWasTapped")
     }
 }

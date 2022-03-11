@@ -25,6 +25,9 @@ final class CalendarView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(DailyEventsCell.self, forCellReuseIdentifier: DailyEventsCell.reuseIdentifier)
         table.rowHeight = 50
+        table.allowsSelection = false
+        table.backgroundColor = .white
+        table.showsVerticalScrollIndicator = false
         return table
     }()
     

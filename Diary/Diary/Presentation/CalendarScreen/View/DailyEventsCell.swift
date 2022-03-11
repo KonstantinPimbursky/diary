@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DailyEventsCellDelegate: AnyObject {
-    func eventWasTapped(_ event: EventModel)
-}
-
 final class DailyEventsCell: UITableViewCell {
     
     // MARK: - Public Properties
@@ -24,8 +20,6 @@ final class DailyEventsCell: UITableViewCell {
             timeLabel.text = timeText
         }
     }
-    
-    public weak var delegate: DailyEventsCellDelegate?
     
     // MARK: - Private Properties
     
@@ -58,6 +52,7 @@ final class DailyEventsCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .white
         setSubviews()
         setConstraints()
     }
