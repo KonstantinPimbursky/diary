@@ -78,7 +78,7 @@ final class DailyEventsCell: UITableViewCell {
     
     public func addEvent(
         _ event: EventModel,
-        with tag: Int,
+        tag: Int,
         target: Any?,
         action: Selector,
         control: UIControl.Event

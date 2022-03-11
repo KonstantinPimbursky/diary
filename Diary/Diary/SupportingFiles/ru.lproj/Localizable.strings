@@ -26,3 +26,9 @@
 "eventWarningMessage" = "Вы действительно хотите отказаться от этого нового события?";
 "eventCancelChanges" = "Отменить изменения";
 "eventContinueEditing" = "Продолжить редактирование";
+
+// MARK: - DetailsScreenView
+
+"detailsFrom" = "с:";
+"detailsTo" = "по:";
+"detailsDescription" = "Описание";

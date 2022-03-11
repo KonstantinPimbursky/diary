@@ -26,3 +26,9 @@
 "eventWarningMessage" = "Are you sure you want to opt out of this new event?";
 "eventCancelChanges" = "Cancel Changes";
 "eventContinueEditing" = "Continue Editing";
+
+// MARK: - DetailsScreenView
+
+"detailsFrom" = "from:";
+"detailsTo" = "to:";
+"detailsDescription" = "Description";
