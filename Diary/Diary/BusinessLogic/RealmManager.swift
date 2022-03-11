@@ -74,10 +74,10 @@ final class RealmManager {
         foundedEvents.forEach {
             outputEvents.append(EventModelImpl(
                 id: UUID(uuidString: $0.id) ?? UUID(),
-                dateStart: $0.dateStart,
-                dateFinish: $0.dateFinish,
+                dateStart: Date(timeIntervalSince1970: $0.dateStart),
+                dateFinish: Date(timeIntervalSince1970: $0.dateFinish),
                 name: $0.eventName,
-                description: $0.description
+                description: $0.eventDescription
             ))
         }
         

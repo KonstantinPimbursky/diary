@@ -11,12 +11,7 @@ final class CreateEventScreenView: UIView {
     
     // MARK: - Public Properties
     
-    public var event: EventModel = EventModelImpl(
-        dateStart: Date().timeIntervalSince1970,
-        dateFinish: Date().timeIntervalSince1970,
-        name: "",
-        description: ""
-    )
+    public var event: EventModel = EventModelImpl()
     
     // MARK: - Private Properties
     
@@ -151,17 +146,19 @@ final class CreateEventScreenView: UIView {
         endField.inputView = endDatePicker
         endField.text = formatter.string(from: endDatePicker.date)
         endDatePicker.addTarget(self, action: #selector(startTimeChanged(_:)), for: .valueChanged)
-        startDatePicker.frame.size = CGSize(width: 0, height: 250)
+        endDatePicker.frame.size = CGSize(width: 0, height: 250)
     }
     
     @objc private func startTimeChanged(_ sender: UIDatePicker) {
         switch sender {
         case startDatePicker:
             startField.text = formatter.string(from: startDatePicker.date)
-            event.dateStart = startDatePicker.date.timeIntervalSince1970
+            event.dateStart = startDatePicker.date
+            endDatePicker.minimumDate = startDatePicker.date
+            endDatePicker.setDate(startDatePicker.date, animated: true)
         case endDatePicker:
             endField.text = formatter.string(from: endDatePicker.date)
-            event.dateFinish = endDatePicker.date.timeIntervalSince1970
+            event.dateFinish = endDatePicker.date
         default:
             return
         }

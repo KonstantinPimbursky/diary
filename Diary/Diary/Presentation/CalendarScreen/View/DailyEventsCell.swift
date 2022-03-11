@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DailyEventsCellDelegate: AnyObject {
+    func eventWasTapped(_ event: EventModel)
+}
+
 final class DailyEventsCell: UITableViewCell {
     
     // MARK: - Public Properties
@@ -21,7 +25,11 @@ final class DailyEventsCell: UITableViewCell {
         }
     }
     
+    public weak var delegate: DailyEventsCellDelegate?
+    
     // MARK: - Private Properties
+    
+    private var events = [EventModel]()
     
     private let timeLabel: UILabel = {
         let label = UILabel()
@@ -40,6 +48,12 @@ final class DailyEventsCell: UITableViewCell {
         return stack
     }()
     
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
+    
     // MARK: - Initializers
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -52,10 +66,38 @@ final class DailyEventsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        events = []
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    }
+    
+    // MARK: - Public Methods
+    
+    public func addEvent(
+        _ event: EventModel,
+        with tag: Int,
+        target: Any?,
+        action: Selector,
+        control: UIControl.Event
+    ) {
+        let startDateString = dateFormatter.string(from: event.dateStart)
+        let endDateString = dateFormatter.string(from: event.dateFinish)
+        let timeString = startDateString + " - " + endDateString
+        let eventView = EventView(name: event.name, time: timeString)
+        events.append(event)
+        eventView.tag = tag
+        eventView.addTarget(target, action: action, for: control)
+        stackView.addArrangedSubview(eventView)
+    }
+    
     // MARK: - Private Methods
     
     private func setSubviews() {
-        addSubview(timeLabel)
+        contentView.addSubview(timeLabel)
+        contentView.addSubview(stackView)
     }
     
     private func setConstraints() {
@@ -64,6 +106,12 @@ final class DailyEventsCell: UITableViewCell {
             timeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             timeLabel.widthAnchor.constraint(equalToConstant: 50)
         ])
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 2),
+            stackView.leadingAnchor.constraint(equalTo: timeLabel.trailingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2)
+        ])
     }
-    
 }

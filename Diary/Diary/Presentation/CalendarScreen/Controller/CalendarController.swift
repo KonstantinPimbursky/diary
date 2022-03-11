@@ -14,7 +14,9 @@ final class CalendarController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var mainView = CalendarView()
+    private let mainView = CalendarView()
+    private var dailyEvents = [EventModel]()
+    private let realmManager = RealmManager()
     
     // MARK: - Life Cycle
     
@@ -39,14 +41,26 @@ final class CalendarController: UIViewController {
     }
     
     private func setupMainView() {
+        mainView.calendarView.select(Date())
         mainView.calendarView.delegate = self
         mainView.dailyEventsTableView.dataSource = self
-        mainView.dailyEventsTableView.delegate = self
     }
     
     @objc private func addButtonAction() {
-        let createEventController = CreateEventScreenController()
+        let createEventController = CreateEventScreenController(delegate: self)
         navigationController?.pushViewController(createEventController, animated: true)
+    }
+    
+    @objc private func eventTapAction(_ sender: UIButton) {
+        print("eventTapAction")
+    }
+}
+
+// MARK: - CreateEventScreenControllerDelegate
+
+extension CalendarController: CreateEventScreenControllerDelegate {
+    func eventWasSaved() {
+        mainView.calendarView.select(Date())
     }
 }
 
@@ -58,7 +72,8 @@ extension CalendarController: FSCalendarDelegate {
         didSelect date: Date,
         at monthPosition: FSCalendarMonthPosition
     ) {
-        print("calendar didSelect")
+        dailyEvents = realmManager.getSavedEvents(per: date)
+        mainView.dailyEventsTableView.reloadData()
     }
 }
 
@@ -84,13 +99,28 @@ extension CalendarController: UITableViewDataSource {
             cellText = String(indexPath.item) + ":00"
         }
         cell.timeText = cellText
+        for event in dailyEvents {
+            let startHour = Calendar.current.component(.hour, from: event.dateStart)
+            let endHour = Calendar.current.component(.hour, from: event.dateFinish)
+            if startHour == indexPath.item || endHour == indexPath.item {
+                cell.addEvent(
+                    event,
+                    with: indexPath.item,
+                    target: self,
+                    action: #selector(eventTapAction(_:)),
+                    control: .touchUpInside
+                )
+            }
+        }
         
         return cell
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - DailyEventsCellDelegate
 
-extension CalendarController: UITableViewDelegate {
-    
+extension CalendarController: DailyEventsCellDelegate {
+    func eventWasTapped(_ event: EventModel) {
+        print("eventWasTapped")
+    }
 }

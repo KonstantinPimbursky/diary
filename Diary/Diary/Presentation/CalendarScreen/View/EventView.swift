@@ -7,34 +7,41 @@
 
 import UIKit
 
-final class EventView: UIView {
+final class EventView: UIButton {
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
     public let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0, green: 0.6332009249, blue: 0.6391848169, alpha: 1)
+        label.isUserInteractionEnabled = false
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
     public let timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0, green: 0.6332009249, blue: 0.6391848169, alpha: 1)
+        label.isUserInteractionEnabled = false
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
-    
-    // MARK: - Private Properties
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.backgroundColor = #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 0.4)
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.isUserInteractionEnabled = false
         return stack
     }()
     
     // MARK: - Initializers
     
-    init() {
+    init(name: String, time: String) {
+        self.nameLabel.text = name
+        self.timeLabel.text = time
         super.init(frame: .zero)
         setup()
         addSubviews()

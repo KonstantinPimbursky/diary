@@ -15,7 +15,6 @@
 		B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97D27D125D400FCC6D6 /* CalendarView.swift */; };
 		B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98427D1302800FCC6D6 /* R.generated.swift */; };
 		B5C1EB6527DA4B6400B11185 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1EB6427DA4B6400B11185 /* RealmManager.swift */; };
-		B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */; };
 		B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */; };
 		B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */; };
 		B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BF27D4D928004ADB14 /* EventModel.swift */; };
@@ -38,7 +37,6 @@
 		B588F97D27D125D400FCC6D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B588F98427D1302800FCC6D6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		B5C1EB6427DA4B6400B11185 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventsCell.swift; sourceTree = "<group>"; };
 		B5D2E0BF27D4D928004ADB14 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };

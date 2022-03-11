@@ -15,6 +15,8 @@ final class CalendarView: UIView {
     public let calendarView: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
+        calendar.appearance.headerDateFormat = "LLLL yyyy"
+        calendar.appearance.headerTitleFont = .systemFont(ofSize: 20)
         return calendar
     }()
     
@@ -22,6 +24,7 @@ final class CalendarView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(DailyEventsCell.self, forCellReuseIdentifier: DailyEventsCell.reuseIdentifier)
+        table.rowHeight = 50
         return table
     }()
     
