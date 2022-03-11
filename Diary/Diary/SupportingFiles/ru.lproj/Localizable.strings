@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Diary
+
+  Created by Konstantin Pimbursky on 06.03.2022.
+  
+*/
+
+// MARK: - WeekStackView
+
+"moday" = "Пн";
+"tuesday" = "Вт";
+"wednesday" = "Ср";
+"thursday" = "Чт";
+"friday" = "Пт";
+"saturday" = "Сб";
+"sunday" = "Вс";
+
+// MARK: - CreateEventScreenView
+
+"eventTitle" = "Событие";
+"eventName" = "Название";
+"eventStartDate" = "Начало:";
+"eventEndDate" = "Конец:";
+"eventDescription" = "Описание";
+"eventWarningMessage" = "Вы действительно хотите отказаться от этого нового события?";
+"eventCancelChanges" = "Отменить изменения";
+"eventContinueEditing" = "Продолжить редактирование";

@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BC973016DD3B13A0254C /* Pods_Diary.framework */; };
+		B522AC6427DA501500B6DA81 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6327DA501500B6DA81 /* Realm */; };
+		B522AC6627DA501500B6DA81 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6527DA501500B6DA81 /* RealmSwift */; };
+		B522AC6B27DA761100B6DA81 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522AC6A27DA761100B6DA81 /* EventView.swift */; };
 		B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97B27D125AB00FCC6D6 /* CalendarController.swift */; };
 		B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97D27D125D400FCC6D6 /* CalendarView.swift */; };
 		B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98427D1302800FCC6D6 /* R.generated.swift */; };
-		B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */; };
+		B5C1EB6527DA4B6400B11185 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1EB6427DA4B6400B11185 /* RealmManager.swift */; };
 		B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */; };
 		B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */; };
 		B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BF27D4D928004ADB14 /* EventModel.swift */; };
+		B5D2E0C427D4E1E6004ADB14 /* CreateEventScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0C327D4E1E6004ADB14 /* CreateEventScreenController.swift */; };
+		B5D2E0C627D4E1F9004ADB14 /* CreateEventScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0C527D4E1F9004ADB14 /* CreateEventScreenView.swift */; };
+		B5D2E0C927D4E60A004ADB14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5D2E0CB27D4E60A004ADB14 /* Localizable.strings */; };
+		B5D2E0CF27D4EBE3004ADB14 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0CE27D4EBE3004ADB14 /* TextField.swift */; };
 		B5F941E627D0C1C4005E10F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */; };
 		B5F941EF27D0C1C4005E10F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */; };
 		B5F941F227D0C1C4005E10F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */; };
@@ -24,13 +31,20 @@
 		0771BC973016DD3B13A0254C /* Pods_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C84E1F241B42900499AD0AA /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
 		A4ACA8EA43B467BFF3EBEFCC /* Pods-Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.release.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.release.xcconfig"; sourceTree = "<group>"; };
+		B522AC6827DA6BFC00B6DA81 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B522AC6A27DA761100B6DA81 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		B588F97B27D125AB00FCC6D6 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		B588F97D27D125D400FCC6D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B588F98427D1302800FCC6D6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		B5C1EB6427DA4B6400B11185 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventsCell.swift; sourceTree = "<group>"; };
 		B5D2E0BF27D4D928004ADB14 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		B5D2E0C327D4E1E6004ADB14 /* CreateEventScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventScreenController.swift; sourceTree = "<group>"; };
+		B5D2E0C527D4E1F9004ADB14 /* CreateEventScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventScreenView.swift; sourceTree = "<group>"; };
+		B5D2E0CA27D4E60A004ADB14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B5D2E0CC27D4E686004ADB14 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B5D2E0CE27D4EBE3004ADB14 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		B5F941E227D0C1C4005E10F7 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F941E527D0C1C4005E10F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B522AC6627DA501500B6DA81 /* RealmSwift in Frameworks */,
+				B522AC6427DA501500B6DA81 /* Realm in Frameworks */,
 				5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,9 +75,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B522AC6727DA6BF100B6DA81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B522AC6827DA6BFC00B6DA81 /* File.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B588F97627D1252F00FCC6D6 /* CalendarScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B522AC6727DA6BF100B6DA81 /* Model */,
 				B588F97A27D1258100FCC6D6 /* Controller */,
 				B588F97927D1257B00FCC6D6 /* View */,
 			);
@@ -78,6 +103,8 @@
 		B588F97827D1256E00FCC6D6 /* CreateEventScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0C227D4E1D4004ADB14 /* Controller */,
+				B5D2E0C127D4E1C6004ADB14 /* View */,
 			);
 			path = CreateEventScreen;
 			sourceTree = "<group>";
@@ -87,6 +114,7 @@
 			children = (
 				B588F97D27D125D400FCC6D6 /* CalendarView.swift */,
 				B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */,
+				B522AC6A27DA761100B6DA81 /* EventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,20 +127,36 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B588F98727D1346600FCC6D6 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		B5D2E0B927D4C1BE004ADB14 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5D2E0C127D4E1C6004ADB14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2E0C527D4E1F9004ADB14 /* CreateEventScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5D2E0C227D4E1D4004ADB14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2E0C327D4E1E6004ADB14 /* CreateEventScreenController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B5D2E0CD27D4EBCF004ADB14 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2E0CE27D4EBE3004ADB14 /* TextField.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		B5F941D927D0C1C4005E10F7 = {
@@ -157,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D2E0BF27D4D928004ADB14 /* EventModel.swift */,
+				B5C1EB6427DA4B6400B11185 /* RealmManager.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -164,6 +209,7 @@
 		B5F941FB27D0C559005E10F7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2E0CD27D4EBCF004ADB14 /* Common */,
 				B588F97827D1256E00FCC6D6 /* CreateEventScreen */,
 				B588F97727D1253E00FCC6D6 /* DetailsScreen */,
 				B588F97627D1252F00FCC6D6 /* CalendarScreen */,
@@ -175,10 +221,10 @@
 			isa = PBXGroup;
 			children = (
 				B5D2E0B927D4C1BE004ADB14 /* Extensions */,
-				B588F98727D1346600FCC6D6 /* Fonts */,
 				B588F98427D1302800FCC6D6 /* R.generated.swift */,
 				B5F941EE27D0C1C4005E10F7 /* Assets.xcassets */,
 				B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */,
+				B5D2E0CB27D4E60A004ADB14 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -211,6 +257,10 @@
 			dependencies = (
 			);
 			name = Diary;
+			packageProductDependencies = (
+				B522AC6327DA501500B6DA81 /* Realm */,
+				B522AC6527DA501500B6DA81 /* RealmSwift */,
+			);
 			productName = Diary;
 			productReference = B5F941E227D0C1C4005E10F7 /* Diary.app */;
 			productType = "com.apple.product-type.application";
@@ -237,8 +287,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B5F941D927D0C1C4005E10F7;
+			packageReferences = (
+				B522AC6227DA501500B6DA81 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = B5F941E327D0C1C4005E10F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F941F227D0C1C4005E10F7 /* LaunchScreen.storyboard in Resources */,
-				B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */,
+				B5D2E0C927D4E60A004ADB14 /* Localizable.strings in Resources */,
 				B5F941EF27D0C1C4005E10F7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,8 +404,13 @@
 				B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */,
 				B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */,
 				B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */,
+				B5D2E0C427D4E1E6004ADB14 /* CreateEventScreenController.swift in Sources */,
+				B5C1EB6527DA4B6400B11185 /* RealmManager.swift in Sources */,
+				B5D2E0CF27D4EBE3004ADB14 /* TextField.swift in Sources */,
+				B522AC6B27DA761100B6DA81 /* EventView.swift in Sources */,
 				B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */,
 				B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */,
+				B5D2E0C627D4E1F9004ADB14 /* CreateEventScreenView.swift in Sources */,
 				B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +418,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B5D2E0CB27D4E60A004ADB14 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5D2E0CA27D4E60A004ADB14 /* en */,
+				B5D2E0CC27D4E686004ADB14 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B5F941F027D0C1C4005E10F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -374,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -435,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -566,6 +636,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B522AC6227DA501500B6DA81 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B522AC6327DA501500B6DA81 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B522AC6227DA501500B6DA81 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		B522AC6527DA501500B6DA81 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B522AC6227DA501500B6DA81 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5F941DA27D0C1C4005E10F7 /* Project object */;
 }
