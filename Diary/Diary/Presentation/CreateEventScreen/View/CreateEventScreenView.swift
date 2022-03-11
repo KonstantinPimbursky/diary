@@ -143,8 +143,8 @@ final class CreateEventScreenView: UIView {
         let picker = UIDatePicker()
         picker.datePickerMode = .dateAndTime
         picker.backgroundColor = .white
-        if #available(iOS 14.0, *) {
-            picker.preferredDatePickerStyle = .inline
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
         } else {
             picker.frame.size = CGSize(width: 0, height: 250)
         }

@@ -61,7 +61,7 @@ extension CalendarView {
             calendarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            calendarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+            calendarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 3)
         ])
         
         NSLayoutConstraint.activate([
