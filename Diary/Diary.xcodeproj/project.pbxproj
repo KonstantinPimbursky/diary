@@ -10,7 +10,6 @@
 		5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BC973016DD3B13A0254C /* Pods_Diary.framework */; };
 		B522AC6427DA501500B6DA81 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6327DA501500B6DA81 /* Realm */; };
 		B522AC6627DA501500B6DA81 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6527DA501500B6DA81 /* RealmSwift */; };
-		B522AC6927DA6BFC00B6DA81 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522AC6827DA6BFC00B6DA81 /* File.swift */; };
 		B522AC6B27DA761100B6DA81 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522AC6A27DA761100B6DA81 /* EventView.swift */; };
 		B588F97C27D125AB00FCC6D6 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97B27D125AB00FCC6D6 /* CalendarController.swift */; };
 		B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97D27D125D400FCC6D6 /* CalendarView.swift */; };

@@ -44,6 +44,10 @@ final class CalendarController: UIViewController {
         mainView.dailyEventsTableView.delegate = self
     }
     
+    @objc private func addButtonAction() {
+        let createEventController = CreateEventScreenController()
+        navigationController?.pushViewController(createEventController, animated: true)
+    }
 }
 
 // MARK: - FSCalendarDelegate
