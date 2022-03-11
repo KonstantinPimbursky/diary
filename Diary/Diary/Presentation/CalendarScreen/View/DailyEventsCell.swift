@@ -12,7 +12,7 @@ final class DailyEventsCell: UITableViewCell {
     // MARK: - Public Properties
     
     static var reuseIdentifier: String {
-        return String(describing: CalendarCell.self)
+        return String(describing: DailyEventsCell.self)
     }
     
     public var timeText: String = "" {

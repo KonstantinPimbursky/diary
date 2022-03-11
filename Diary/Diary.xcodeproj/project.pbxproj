@@ -12,9 +12,6 @@
 		B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F97D27D125D400FCC6D6 /* CalendarView.swift */; };
 		B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98427D1302800FCC6D6 /* R.generated.swift */; };
 		B588F98927D1347300FCC6D6 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */; };
-		B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */; };
-		B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B588F98C27D1422400FCC6D6 /* CalendarCell.swift */; };
-		B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */; };
 		B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */; };
 		B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */; };
 		B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2E0BF27D4D928004ADB14 /* EventModel.swift */; };
@@ -31,9 +28,6 @@
 		B588F97D27D125D400FCC6D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B588F98427D1302800FCC6D6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		B588F98827D1347300FCC6D6 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStackView.swift; sourceTree = "<group>"; };
-		B588F98C27D1422400FCC6D6 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
-		B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		B5D2E0BA27D4C1CF004ADB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventsCell.swift; sourceTree = "<group>"; };
 		B5D2E0BF27D4D928004ADB14 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
@@ -92,8 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				B588F97D27D125D400FCC6D6 /* CalendarView.swift */,
-				B588F98A27D13B3500FCC6D6 /* WeekStackView.swift */,
-				B588F98C27D1422400FCC6D6 /* CalendarCell.swift */,
 				B5D2E0BD27D4CEF9004ADB14 /* DailyEventsCell.swift */,
 			);
 			path = View;
@@ -164,7 +156,6 @@
 		B5F941FA27D0C54D005E10F7 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				B5D2E0B727D4B6B6004ADB14 /* CalendarHelper.swift */,
 				B5D2E0BF27D4D928004ADB14 /* EventModel.swift */,
 			);
 			path = BusinessLogic;
@@ -361,10 +352,7 @@
 				B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */,
 				B588F98527D1302800FCC6D6 /* R.generated.swift in Sources */,
 				B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */,
-				B588F98B27D13B3500FCC6D6 /* WeekStackView.swift in Sources */,
-				B588F98D27D1422400FCC6D6 /* CalendarCell.swift in Sources */,
 				B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */,
-				B5D2E0B827D4B6B6004ADB14 /* CalendarHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
