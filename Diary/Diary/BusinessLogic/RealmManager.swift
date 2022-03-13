@@ -67,7 +67,8 @@ final class RealmManager {
     public func getSavedEvents(per date: Date) -> [EventModel] {
         let savedEvents = localRealm.objects(PhotoRealmObject.self).toArray()
         let foundedEvents = savedEvents.filter({
-            Calendar.current.isDate(Date(timeIntervalSince1970: $0.dateStart), inSameDayAs: date)
+            Calendar.current.isDate(Date(timeIntervalSince1970: $0.dateStart), inSameDayAs: date) ||
+            Calendar.current.isDate(Date(timeIntervalSince1970: $0.dateFinish), inSameDayAs: date)
         })
         
         var outputEvents = [EventModel]()

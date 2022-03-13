@@ -17,6 +17,7 @@ final class CalendarController: UIViewController {
     private let mainView = CalendarView()
     private var dailyEvents = [EventModel]()
     private let realmManager = RealmManager()
+    private var selectedDate: Date = Date()
     
     // MARK: - Life Cycle
     
@@ -99,6 +100,7 @@ extension CalendarController: FSCalendarDelegate {
         didSelect date: Date,
         at monthPosition: FSCalendarMonthPosition
     ) {
+        selectedDate = date
         dailyEvents = realmManager.getSavedEvents(per: date)
         mainView.dailyEventsTableView.reloadData()
     }
@@ -139,14 +141,38 @@ extension CalendarController: UITableViewDataSource {
         for (index, event) in dailyEvents.enumerated() {
             let startHour = Calendar.current.component(.hour, from: event.dateStart)
             let endHour = Calendar.current.component(.hour, from: event.dateFinish)
-            if indexPath.item >= startHour && indexPath.item <= endHour {
-                cell.addEvent(
-                    event,
-                    tag: index,
-                    target: self,
-                    action: #selector(eventTapAction(_:)),
-                    control: .touchUpInside
-                )
+            
+            if Calendar.current.isDate(event.dateStart, inSameDayAs: selectedDate) &&
+                Calendar.current.isDate(event.dateFinish, inSameDayAs: selectedDate) {
+                if indexPath.item >= startHour && indexPath.item <= endHour {
+                    cell.addEvent(
+                        event,
+                        tag: index,
+                        target: self,
+                        action: #selector(eventTapAction(_:)),
+                        control: .touchUpInside
+                    )
+                }
+            } else if !Calendar.current.isDate(event.dateStart, inSameDayAs: selectedDate) {
+                if indexPath.item <= endHour {
+                    cell.addEvent(
+                        event,
+                        tag: index,
+                        target: self,
+                        action: #selector(eventTapAction(_:)),
+                        control: .touchUpInside
+                    )
+                }
+            } else if !Calendar.current.isDate(event.dateFinish, inSameDayAs: selectedDate) {
+                if indexPath.item >= startHour {
+                    cell.addEvent(
+                        event,
+                        tag: index,
+                        target: self,
+                        action: #selector(eventTapAction(_:)),
+                        control: .touchUpInside
+                    )
+                }
             }
         }
         
