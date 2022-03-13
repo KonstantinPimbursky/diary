@@ -52,13 +52,24 @@ final class CalendarController: UIViewController {
     }
     
     @objc private func addButtonAction() {
-//        let createEventController = CreateEventScreenController(delegate: self)
         let storyBoard = UIStoryboard(name: "CreateEventController", bundle: nil)
         guard let createEventController = storyBoard.instantiateViewController(
             withIdentifier: "CreateEventController"
         ) as? CreateEventController else { return }
         createEventController.delegate = self
-        if let selectedDate = mainView.calendarView.selectedDate {
+        if var selectedDate = mainView.calendarView.selectedDate {
+            let currentHour = Calendar.current.component(.hour, from: Date())
+            let currentMinute = Calendar.current.component(.minute, from: Date())
+            selectedDate = Calendar.current.date(
+                byAdding: .hour,
+                value: currentHour,
+                to: selectedDate
+            ) ?? selectedDate
+            selectedDate = Calendar.current.date(
+                byAdding: .minute,
+                value: currentMinute,
+                to: selectedDate
+            ) ?? selectedDate
             createEventController.selectedDate(selectedDate)
         }
         navigationController?.pushViewController(createEventController, animated: true)
