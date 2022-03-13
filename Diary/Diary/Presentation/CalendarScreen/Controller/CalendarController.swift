@@ -52,7 +52,12 @@ final class CalendarController: UIViewController {
     }
     
     @objc private func addButtonAction() {
-        let createEventController = CreateEventScreenController(delegate: self)
+//        let createEventController = CreateEventScreenController(delegate: self)
+        let storyBoard = UIStoryboard(name: "CreateEventController", bundle: nil)
+        guard let createEventController = storyBoard.instantiateViewController(
+            withIdentifier: "CreateEventController"
+        ) as? CreateEventController else { return }
+        createEventController.delegate = self
         navigationController?.pushViewController(createEventController, animated: true)
     }
     
@@ -64,7 +69,7 @@ final class CalendarController: UIViewController {
 
 // MARK: - CreateEventScreenControllerDelegate
 
-extension CalendarController: CreateEventScreenControllerDelegate {
+extension CalendarController: CreateEventControllerDelegate {
     func eventWasSaved() {
         mainView.calendarView.select(Date())
         fillTodayEvents()
