@@ -85,7 +85,7 @@ final class CreateEventScreenView: UIView {
         field.textAlignment = .left
         field.backgroundColor = R.color.greyLight()
         field.layer.cornerRadius = 8
-        field.placeholder = "Время"
+        field.textAlignment = .right
         return field
     }()
     
@@ -97,7 +97,7 @@ final class CreateEventScreenView: UIView {
         field.textAlignment = .left
         field.backgroundColor = R.color.greyLight()
         field.layer.cornerRadius = 8
-        field.placeholder = "Время"
+        field.textAlignment = .right
         return field
     }()
     
@@ -257,7 +257,10 @@ extension CreateEventScreenView {
             startField.text = formatter.string(from: startDatePicker.date)
             event.dateStart = startDatePicker.date
             endDatePicker.minimumDate = startDatePicker.date
-            endDatePicker.setDate(startDatePicker.date, animated: true)
+            if startDatePicker.date > endDatePicker.date {
+                endField.text = formatter.string(from: startDatePicker.date)
+                endDatePicker.setDate(startDatePicker.date, animated: true)
+            }
         case endDatePicker:
             endField.text = formatter.string(from: endDatePicker.date)
             event.dateFinish = endDatePicker.date
