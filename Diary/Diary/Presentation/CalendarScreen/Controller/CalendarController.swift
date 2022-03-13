@@ -15,6 +15,7 @@ final class CalendarController: UIViewController {
     // MARK: - Private Properties
     
     private let mainView = CalendarView()
+    /// Массив событий за день для отображения в нижней таблице
     private var dailyEvents = [EventModel]()
     private let realmManager = RealmManager()
     private var selectedDate: Date = Date()
@@ -28,7 +29,7 @@ final class CalendarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
-        fillTodayEvents()
+        fillEvents()
         setupMainView()
     }
     
@@ -42,8 +43,8 @@ final class CalendarController: UIViewController {
         )
     }
     
-    private func fillTodayEvents() {
-        dailyEvents = realmManager.getSavedEvents(per: Date())
+    private func fillEvents(for date: Date = Date()) {
+        dailyEvents = realmManager.getSavedEvents(per: date)
     }
     
     private func setupMainView() {
@@ -86,8 +87,7 @@ final class CalendarController: UIViewController {
 
 extension CalendarController: CreateEventControllerDelegate {
     func eventWasSaved() {
-        mainView.calendarView.select(Date())
-        fillTodayEvents()
+        fillEvents(for: selectedDate)
         mainView.dailyEventsTableView.reloadData()
     }
 }
@@ -110,8 +110,7 @@ extension CalendarController: FSCalendarDelegate {
 
 extension CalendarController: DetailsScreenControllerDelegate {
     func deleteButtonWasTapped() {
-        print("deleteButtonWasTapped")
-        fillTodayEvents()
+        fillEvents(for: selectedDate)
         mainView.dailyEventsTableView.reloadData()
     }
 }
