@@ -18,6 +18,11 @@ final class CreateEventScreenController: UIViewController {
     private weak var delegate: CreateEventScreenControllerDelegate?
     private lazy var mainView = CreateEventScreenView(delegate: self)
     private let realmManager = RealmManager()
+    private var eventHasChanges: Bool = false {
+        didSet {
+            navigationItem.rightBarButtonItem?.isEnabled = eventHasChanges
+        }
+    }
     
     // MARK: - Initializers
     
@@ -45,8 +50,17 @@ final class CreateEventScreenController: UIViewController {
     // MARK: - Private Methods
     
     private func setupNavigationBar() {
-        navigationItem.leftBarButtonItem = mainView.cancelButtonItem
-        navigationItem.rightBarButtonItem = mainView.saveButtonItem
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(cancelAction)
+        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .save,
+            target: self,
+            action: #selector(saveAction)
+        )
+        navigationItem.rightBarButtonItem?.isEnabled = false
         navigationItem.title = R.string.localizable.eventTitle()
     }
     
@@ -72,35 +86,15 @@ final class CreateEventScreenController: UIViewController {
         present(alertController, animated: true)
     }
     
-//    @objc private func cancelAction() {
-//        showAlert()
-//    }
-//
-//    @objc private func saveAction() {
-//        realmManager.saveEvent(
-//            id: mainView.event.id.uuidString,
-//            dateStart: mainView.event.dateStart.timeIntervalSince1970,
-//            dateFinish: mainView.event.dateFinish.timeIntervalSince1970,
-//            eventName: mainView.event.name,
-//            eventDescription: mainView.event.description
-//        )
-//        delegate?.eventWasSaved()
-//        navigationController?.popViewController(animated: true)
-//    }
-}
-
-// MARK: - CreateEventScreenViewDelegate
-
-extension CreateEventScreenController: CreateEventScreenViewDelegate {
-    func cancelItemAction() {
-        if mainView.changesWasMade {
+    @objc private func cancelAction() {
+        if eventHasChanges {
             showAlert()
         } else {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-    func saveItemAction() {
+
+    @objc private func saveAction() {
         realmManager.saveEvent(
             id: mainView.event.id.uuidString,
             dateStart: mainView.event.dateStart.timeIntervalSince1970,
@@ -110,5 +104,14 @@ extension CreateEventScreenController: CreateEventScreenViewDelegate {
         )
         delegate?.eventWasSaved()
         navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - CreateEventScreenViewDelegate
+
+extension CreateEventScreenController: CreateEventScreenViewDelegate {
+    func createEventScreenView(hasChanges: Bool) {
+        
+        eventHasChanges = hasChanges
     }
 }

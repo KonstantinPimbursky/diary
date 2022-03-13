@@ -8,8 +8,7 @@
 import UIKit
 
 protocol CreateEventScreenViewDelegate: AnyObject {
-    func cancelItemAction()
-    func saveItemAction()
+    func createEventScreenView(hasChanges: Bool)
 }
 
 final class CreateEventScreenView: UIView {
@@ -22,22 +21,6 @@ final class CreateEventScreenView: UIView {
         return nameWasAdded || descriptionWasAdded
     }
     
-    public let cancelButtonItem = UIBarButtonItem(
-        barButtonSystemItem: .cancel,
-        target: self,
-        action: #selector(cancelAction)
-    )
-    
-    public lazy var saveButtonItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(
-            barButtonSystemItem: .save,
-            target: self,
-            action: #selector(saveAction)
-        )
-        item.isEnabled = false
-        return item
-    }()
-    
     // MARK: - Private Properties
     
     private weak var delegate: CreateEventScreenViewDelegate?
@@ -47,7 +30,7 @@ final class CreateEventScreenView: UIView {
             changesSaveItemActivity()
         }
     }
-    private var descriptionWasAdded: Bool = true {
+    private var descriptionWasAdded: Bool = false {
         didSet {
             changesSaveItemActivity()
         }
@@ -63,6 +46,8 @@ final class CreateEventScreenView: UIView {
         field.backgroundColor = R.color.greyLight()
         field.layer.cornerRadius = 8
         field.delegate = self
+        field.clearButtonMode = .whileEditing
+        field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return field
     }()
     
@@ -187,11 +172,7 @@ final class CreateEventScreenView: UIView {
     // MARK: - Private Methods
     
     private func changesSaveItemActivity() {
-        if changesWasMade {
-            saveButtonItem.isEnabled = true
-        } else {
-            saveButtonItem.isEnabled = false
-        }
+        delegate?.createEventScreenView(hasChanges: changesWasMade)
     }
     
     private func setDatePickers() {
@@ -270,14 +251,6 @@ final class CreateEventScreenView: UIView {
 // MARK: - Actions
 
 extension CreateEventScreenView {
-    @objc private func cancelAction() {
-        delegate?.cancelItemAction()
-    }
-    
-    @objc private func saveAction() {
-        delegate?.saveItemAction()
-    }
-    
     @objc private func startTimeChanged(_ sender: UIDatePicker) {
         switch sender {
         case startDatePicker:
@@ -292,11 +265,29 @@ extension CreateEventScreenView {
             return
         }
     }
+    
+    @objc private func textFieldDidChange(_ sender: UITextField) {
+        guard let text = sender.text else { return }
+        if text.isEmpty {
+            nameWasAdded = false
+        } else {
+            nameWasAdded = true
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
 
 extension CreateEventScreenView: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text.isEmpty {
+            nameWasAdded = false
+        } else {
+            nameWasAdded = true
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
             if text.isEmpty {
@@ -323,21 +314,51 @@ extension CreateEventScreenView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            descriptionWasAdded = false
-            textView.text = R.string.localizable.eventDescription()
+            switch textView {
+            case nameField:
+                nameWasAdded = false
+                textView.text = R.string.localizable.eventName()
+            case descriptionFiled:
+                descriptionWasAdded = false
+                textView.text = R.string.localizable.eventDescription()
+            default:
+                break
+            }
             textView.textColor = .lightGray
         } else {
-            descriptionWasAdded = true
+            switch textView {
+            case nameField:
+                nameWasAdded = true
+            case descriptionFiled:
+                descriptionWasAdded = true
+            default:
+                break
+            }
         }
     }
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.isEmpty {
-            descriptionWasAdded = false
+            switch textView {
+            case nameField:
+                nameWasAdded = false
+                event.name = textView.text
+            case descriptionFiled:
+                descriptionWasAdded = false
+                event.description = textView.text
+            default:
+                break
+            }
         } else {
-            if textView.textColor == .black {
+            switch textView {
+            case nameField:
+                nameWasAdded = true
+                event.name = textView.text
+            case descriptionFiled:
                 descriptionWasAdded = true
                 event.description = textView.text
+            default:
+                break
             }
         }
     }

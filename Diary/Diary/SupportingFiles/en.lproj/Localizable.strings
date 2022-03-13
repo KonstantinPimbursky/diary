@@ -31,4 +31,5 @@
 
 "detailsFrom" = "from:";
 "detailsTo" = "to:";
+"detailsName" = "Name";
 "detailsDescription" = "Description";

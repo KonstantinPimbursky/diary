@@ -31,4 +31,5 @@
 
 "detailsFrom" = "с:";
 "detailsTo" = "по:";
+"detailsName" = "Название";
 "detailsDescription" = "Описание";
