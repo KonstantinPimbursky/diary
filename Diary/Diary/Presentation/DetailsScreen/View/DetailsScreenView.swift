@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetailsScreenViewDelegate: AnyObject {
+    func deleteButtonWasTapped()
+}
+
 final class DetailsScreenView: UIView {
     
     // MARK: - Public Properties
@@ -46,6 +50,8 @@ final class DetailsScreenView: UIView {
     
     // MARK: - Private Properties
     
+    private weak var delegate: DetailsScreenViewDelegate?
+    
     private let descriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,9 +61,19 @@ final class DetailsScreenView: UIView {
         return label
     }()
     
+    private lazy var deleteButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(.systemRed, for: .normal)
+        button.setTitle(R.string.localizable.detailsDeleteEvent(), for: .normal)
+        button.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Initializers
     
-    init() {
+    init(delegate: DetailsScreenViewDelegate?) {
+        self.delegate = delegate
         super.init(frame: .zero)
         backgroundColor = .white
         addSubviews()
@@ -70,12 +86,19 @@ final class DetailsScreenView: UIView {
     
     // MARK: - Private Methods
     
+    @objc private func deleteAction() {
+        delegate?.deleteButtonWasTapped()
+    }
+    
     private func addSubviews() {
-        addSubview(nameLabel)
-        addSubview(startLabel)
-        addSubview(endLabel)
-        addSubview(descriptionTitleLabel)
-        addSubview(descriptionLabel)
+        [
+            nameLabel,
+            startLabel,
+            endLabel,
+            descriptionTitleLabel,
+            descriptionLabel,
+            deleteButton
+        ].forEach { addSubview($0) }
     }
     
     private func setConstraints() {
@@ -102,10 +125,16 @@ final class DetailsScreenView: UIView {
             descriptionTitleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             descriptionTitleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
+        
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            deleteButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            deleteButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 }

@@ -33,3 +33,7 @@
 "detailsTo" = "to:";
 "detailsName" = "Name";
 "detailsDescription" = "Description";
+"detailsDeleteEvent" = "Delete event";
+"detailsWarningMessage" = "Are you sure you want to delete this event?";
+"detailsDeleteEvent" = "Delete event";
+"detailsCancel" = "Cancel";

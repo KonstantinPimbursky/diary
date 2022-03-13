@@ -44,6 +44,7 @@ final class CreateEventController: UIViewController {
         }
     }
     
+    private var selectedDate: Date = Date()
     private let realmManager = RealmManager()
     
     // MARK: - Life Cycle
@@ -55,6 +56,13 @@ final class CreateEventController: UIViewController {
         setupStartLabel()
         setupEndLabel()
         setupDescriptionField()
+        setupDatePickers()
+    }
+    
+    // MARK: - Public Methods
+    
+    public func selectedDate(_ date: Date) {
+        selectedDate = date
     }
     
     // MARK: - IBActions
@@ -108,6 +116,11 @@ final class CreateEventController: UIViewController {
         descriptionFiled.delegate = self
         descriptionFiled.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         descriptionFiled.font = UIFont.systemFont(ofSize: 16)
+    }
+    
+    private func setupDatePickers() {
+        startDatePicker.setDate(selectedDate, animated: false)
+        endDatePicker.setDate(selectedDate, animated: false)
     }
     
     private func changesSaveItemActivity() {

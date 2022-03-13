@@ -58,11 +58,14 @@ final class CalendarController: UIViewController {
             withIdentifier: "CreateEventController"
         ) as? CreateEventController else { return }
         createEventController.delegate = self
+        if let selectedDate = mainView.calendarView.selectedDate {
+            createEventController.selectedDate(selectedDate)
+        }
         navigationController?.pushViewController(createEventController, animated: true)
     }
     
     @objc private func eventTapAction(_ sender: UIButton) {
-        let detailsController = DetailsScreenController(eventModel: dailyEvents[sender.tag])
+        let detailsController = DetailsScreenController(eventModel: dailyEvents[sender.tag], delegate: self)
         navigationController?.pushViewController(detailsController, animated: true)
     }
 }
@@ -86,6 +89,16 @@ extension CalendarController: FSCalendarDelegate {
         at monthPosition: FSCalendarMonthPosition
     ) {
         dailyEvents = realmManager.getSavedEvents(per: date)
+        mainView.dailyEventsTableView.reloadData()
+    }
+}
+
+// MARK: - DetailsScreenControllerDelegate
+
+extension CalendarController: DetailsScreenControllerDelegate {
+    func deleteButtonWasTapped() {
+        print("deleteButtonWasTapped")
+        fillTodayEvents()
         mainView.dailyEventsTableView.reloadData()
     }
 }

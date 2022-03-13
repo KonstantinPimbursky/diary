@@ -33,3 +33,7 @@
 "detailsTo" = "по:";
 "detailsName" = "Название";
 "detailsDescription" = "Описание";
+"detailsDeleteEvent" = "Удалить событие";
+"detailsWarningMessage" = "Вы действительно хотите удалить это событие?";
+"detailsDeleteEvent" = "Удалить событие";
+"detailsCancel" = "Отменить";
