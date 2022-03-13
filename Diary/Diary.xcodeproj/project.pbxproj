@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F23983D106891DFC820DD93 /* Pods_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771BC973016DD3B13A0254C /* Pods_Diary.framework */; };
+		B5153FB927DBBF2100ABC6D1 /* DetailsScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153FB827DBBF2100ABC6D1 /* DetailsScreenController.swift */; };
+		B5153FBB27DBBF2E00ABC6D1 /* DetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5153FBA27DBBF2E00ABC6D1 /* DetailsScreenView.swift */; };
 		B522AC6427DA501500B6DA81 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6327DA501500B6DA81 /* Realm */; };
 		B522AC6627DA501500B6DA81 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B522AC6527DA501500B6DA81 /* RealmSwift */; };
 		B522AC6B27DA761100B6DA81 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522AC6A27DA761100B6DA81 /* EventView.swift */; };
@@ -31,7 +33,8 @@
 		0771BC973016DD3B13A0254C /* Pods_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C84E1F241B42900499AD0AA /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
 		A4ACA8EA43B467BFF3EBEFCC /* Pods-Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.release.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.release.xcconfig"; sourceTree = "<group>"; };
-		B522AC6827DA6BFC00B6DA81 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B5153FB827DBBF2100ABC6D1 /* DetailsScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenController.swift; sourceTree = "<group>"; };
+		B5153FBA27DBBF2E00ABC6D1 /* DetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenView.swift; sourceTree = "<group>"; };
 		B522AC6A27DA761100B6DA81 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		B588F97B27D125AB00FCC6D6 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		B588F97D27D125D400FCC6D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -75,18 +78,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B522AC6727DA6BF100B6DA81 /* Model */ = {
+		B5153FB627DBBEFD00ABC6D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B522AC6827DA6BFC00B6DA81 /* File.swift */,
+				B5153FBA27DBBF2E00ABC6D1 /* DetailsScreenView.swift */,
 			);
-			path = Model;
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5153FB727DBBF0100ABC6D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5153FB827DBBF2100ABC6D1 /* DetailsScreenController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B588F97627D1252F00FCC6D6 /* CalendarScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B522AC6727DA6BF100B6DA81 /* Model */,
 				B588F97A27D1258100FCC6D6 /* Controller */,
 				B588F97927D1257B00FCC6D6 /* View */,
 			);
@@ -96,6 +106,8 @@
 		B588F97727D1253E00FCC6D6 /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				B5153FB727DBBF0100ABC6D1 /* Controller */,
+				B5153FB627DBBEFD00ABC6D1 /* View */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -405,6 +417,7 @@
 				B5D2E0BE27D4CEF9004ADB14 /* DailyEventsCell.swift in Sources */,
 				B588F97E27D125D400FCC6D6 /* CalendarView.swift in Sources */,
 				B5D2E0C427D4E1E6004ADB14 /* CreateEventScreenController.swift in Sources */,
+				B5153FB927DBBF2100ABC6D1 /* DetailsScreenController.swift in Sources */,
 				B5C1EB6527DA4B6400B11185 /* RealmManager.swift in Sources */,
 				B5D2E0CF27D4EBE3004ADB14 /* TextField.swift in Sources */,
 				B522AC6B27DA761100B6DA81 /* EventView.swift in Sources */,
@@ -412,6 +425,7 @@
 				B5D2E0BB27D4C1CF004ADB14 /* String+Extensions.swift in Sources */,
 				B5D2E0C627D4E1F9004ADB14 /* CreateEventScreenView.swift in Sources */,
 				B5D2E0C027D4D928004ADB14 /* EventModel.swift in Sources */,
+				B5153FBB27DBBF2E00ABC6D1 /* DetailsScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

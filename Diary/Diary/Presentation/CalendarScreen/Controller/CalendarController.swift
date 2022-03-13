@@ -27,6 +27,7 @@ final class CalendarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        fillTodayEvents()
         setupMainView()
     }
     
@@ -38,6 +39,10 @@ final class CalendarController: UIViewController {
             target: self,
             action: #selector(addButtonAction)
         )
+    }
+    
+    private func fillTodayEvents() {
+        dailyEvents = realmManager.getSavedEvents(per: Date())
     }
     
     private func setupMainView() {
@@ -52,7 +57,8 @@ final class CalendarController: UIViewController {
     }
     
     @objc private func eventTapAction(_ sender: UIButton) {
-        print("eventTapAction")
+        let detailsController = DetailsScreenController(eventModel: dailyEvents[sender.tag])
+        navigationController?.pushViewController(detailsController, animated: true)
     }
 }
 
@@ -61,6 +67,8 @@ final class CalendarController: UIViewController {
 extension CalendarController: CreateEventScreenControllerDelegate {
     func eventWasSaved() {
         mainView.calendarView.select(Date())
+        fillTodayEvents()
+        mainView.dailyEventsTableView.reloadData()
     }
 }
 
@@ -99,13 +107,13 @@ extension CalendarController: UITableViewDataSource {
             cellText = String(indexPath.item) + ":00"
         }
         cell.timeText = cellText
-        for event in dailyEvents {
+        for (index, event) in dailyEvents.enumerated() {
             let startHour = Calendar.current.component(.hour, from: event.dateStart)
             let endHour = Calendar.current.component(.hour, from: event.dateFinish)
-            if startHour == indexPath.item || endHour == indexPath.item {
+            if indexPath.item >= startHour && indexPath.item <= endHour {
                 cell.addEvent(
                     event,
-                    with: indexPath.item,
+                    tag: index,
                     target: self,
                     action: #selector(eventTapAction(_:)),
                     control: .touchUpInside
@@ -114,13 +122,5 @@ extension CalendarController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-// MARK: - DailyEventsCellDelegate
-
-extension CalendarController: DailyEventsCellDelegate {
-    func eventWasTapped(_ event: EventModel) {
-        print("eventWasTapped")
     }
 }

@@ -16,8 +16,13 @@ final class CreateEventScreenController: UIViewController {
     // MARK: - Private Properties
     
     private weak var delegate: CreateEventScreenControllerDelegate?
-    private let mainView = CreateEventScreenView()
+    private lazy var mainView = CreateEventScreenView(delegate: self)
     private let realmManager = RealmManager()
+    private var eventHasChanges: Bool = false {
+        didSet {
+            navigationItem.rightBarButtonItem?.isEnabled = eventHasChanges
+        }
+    }
     
     // MARK: - Initializers
     
@@ -55,6 +60,7 @@ final class CreateEventScreenController: UIViewController {
             target: self,
             action: #selector(saveAction)
         )
+        navigationItem.rightBarButtonItem?.isEnabled = false
         navigationItem.title = R.string.localizable.eventTitle()
     }
     
@@ -81,9 +87,13 @@ final class CreateEventScreenController: UIViewController {
     }
     
     @objc private func cancelAction() {
-        showAlert()
+        if eventHasChanges {
+            showAlert()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
-    
+
     @objc private func saveAction() {
         realmManager.saveEvent(
             id: mainView.event.id.uuidString,
@@ -94,5 +104,14 @@ final class CreateEventScreenController: UIViewController {
         )
         delegate?.eventWasSaved()
         navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - CreateEventScreenViewDelegate
+
+extension CreateEventScreenController: CreateEventScreenViewDelegate {
+    func createEventScreenView(hasChanges: Bool) {
+        
+        eventHasChanges = hasChanges
     }
 }

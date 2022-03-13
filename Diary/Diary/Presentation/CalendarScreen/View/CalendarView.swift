@@ -17,6 +17,7 @@ final class CalendarView: UIView {
         calendar.translatesAutoresizingMaskIntoConstraints = false
         calendar.appearance.headerDateFormat = "LLLL yyyy"
         calendar.appearance.headerTitleFont = .systemFont(ofSize: 20)
+        calendar.firstWeekday = 2
         return calendar
     }()
     
@@ -25,6 +26,9 @@ final class CalendarView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(DailyEventsCell.self, forCellReuseIdentifier: DailyEventsCell.reuseIdentifier)
         table.rowHeight = 50
+        table.allowsSelection = false
+        table.backgroundColor = .white
+        table.showsVerticalScrollIndicator = false
         return table
     }()
     
@@ -58,7 +62,7 @@ extension CalendarView {
             calendarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            calendarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+            calendarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 3)
         ])
         
         NSLayoutConstraint.activate([
