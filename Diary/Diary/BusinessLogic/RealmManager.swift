@@ -38,6 +38,7 @@ class PhotoRealmObject: Object {
 final class RealmManager {
     
     // MARK: - Private Properties
+    
     // swiftlint:disable:next force_try
     private let localRealm = try! Realm()
     
@@ -84,19 +85,20 @@ final class RealmManager {
         return outputEvents
     }
     
-    public func deletePhoto(id: String) {
-        let savedPhotos = localRealm.objects(PhotoRealmObject.self)
+    public func deleteEvent(id: String) {
+        let savedEvents = localRealm.objects(PhotoRealmObject.self)
         let predicate = NSPredicate(format: "id == %@", id)
-        let findPhoto = savedPhotos.filter(predicate)
+        let findEvent = savedEvents.filter(predicate)
         // swiftlint:disable:next force_try
         try! localRealm.write {
-            localRealm.delete(findPhoto)
+            localRealm.delete(findEvent)
         }
     }
     
 }
 
 // MARK: - Results Extension
+
 extension Results {
     func toArray() -> [Element] {
       return compactMap {
