@@ -17,6 +17,7 @@ final class CalendarView: UIView {
         calendar.translatesAutoresizingMaskIntoConstraints = false
         calendar.appearance.headerDateFormat = "LLLL yyyy"
         calendar.appearance.headerTitleFont = .systemFont(ofSize: 20)
+        calendar.firstWeekday = 2
         return calendar
     }()
     
